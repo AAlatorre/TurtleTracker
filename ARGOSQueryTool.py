@@ -37,9 +37,12 @@ for lineString in lineStrings:
     obsLat = lineData[5]                # Observation Latitude
     obsLon = lineData[6]                # Observation Longitude
 
-    #Adds values to dictionaries
-    dateDict[recordID] = obsDateTime
-    locationDict[recordID] = (obsLat, obsLon)
+    #Filter out bad data
+    if obsLC in("1","2","3"):
+
+        #Adds values to dictionaries
+        dateDict[recordID] = obsDateTime
+        locationDict[recordID] = (obsLat, obsLon)
     
 # Indicate script is complete
 print ("Finished")
